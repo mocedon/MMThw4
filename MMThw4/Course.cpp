@@ -1,7 +1,7 @@
 #include "Course.h"
 
 Course::Course(int id, char* name, int hw_num, double hw_weigh) :
-	id_(id), name_(strcpy(new char[strlen(name)+1],name)), hw_num_(hw_num), hw_weigh_(hw_weigh),
+	id_(id), name_(getCopy(name)), hw_num_(hw_num), hw_weigh_(hw_weigh),
 	exam_grade_(0) ,hw_grade_(new int[hw_num]) {}
 
 Course::~Course()
@@ -17,9 +17,7 @@ int Course::getNum() const
 
 char* Course::getName() const
 {
-	char* copy = new char[strlen(name_) + 1];
-	strcpy(copy, name_);
-	return copy;
+	return getCopy(name_);
 }
 
 int Course::getExamGrade() const
@@ -57,26 +55,37 @@ int Course::getCourseGrade() const
 	return (1 - hw_weigh_)*exam_grade_ + hw_weigh_ * getHwAverage();
 }
 
-int Course::setExamGrade(int grade)
+bool Course::setExamGrade(int grade)
 {
 	if (grade<0 || grade>MAX_GRADE)
 	{
-		return 0;
+		return false;
 	}
 	exam_grade_ = grade;
-	return 1;
+	return true;
 }
 
-int Course::setHwGrade(int i, int grade)
+bool Course::setHwGrade(int i, int grade)
 {
 	if (i < 0 || i >= hw_num_)
 	{
-		return 0;
+		return false;
 	}
 	if (grade<0 || grade>MAX_GRADE)
 	{
-		return 0;
+		return false;
 	}
 	hw_grade_[i] = grade;
-	return 1;
+	return true;
+}
+
+char* getCopy(char* str)
+{
+	if (str == NULL)
+	{
+		return NULL;
+	}
+	char* copy = new char[strlen + 1];
+	strcpy(copy, str);
+	return copy;
 }

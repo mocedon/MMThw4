@@ -27,8 +27,9 @@ public:
 	double getHwWeigh() const;
 	double getHwAverage() const;
 	virtual int getCourseGrade() const;
-	int setExamGrade(int grade);
-	int setHwGrade(int i, int grade);
+	bool setExamGrade(int grade);
+	bool setHwGrade(int i, int grade);
+	friend char* getCopy(char* str);
 };
 
 #endif
