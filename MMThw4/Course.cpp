@@ -59,10 +59,24 @@ int Course::getCourseGrade() const
 
 int Course::setExamGrade(int grade)
 {
+	if (grade<0 || grade>MAX_GRADE)
+	{
+		return 0;
+	}
 	exam_grade_ = grade;
+	return 1;
 }
 
 int Course::setHwGrade(int i, int grade)
 {
+	if (i < 0 || i >= hw_num_)
+	{
+		return 0;
+	}
+	if (grade<0 || grade>MAX_GRADE)
+	{
+		return 0;
+	}
 	hw_grade_[i] = grade;
+	return 1;
 }
