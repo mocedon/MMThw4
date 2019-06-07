@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <iostream>
+
+using namespace std;
+
 
 #define MAX_GRADE 100
 
@@ -16,6 +20,8 @@ protected:
 	double hw_weigh_;
 	int exam_grade_;
 	int* hw_grade_;
+	char* getCopy(char* str) const;
+	int* getCopy(int* arr , int len) const ;
 public:
 	Course(int id = 0, char* name = NULL, int hw_num = 0, double hw_weigh = 0);
 	virtual ~Course();
@@ -29,7 +35,9 @@ public:
 	virtual int getCourseGrade() const;
 	bool setExamGrade(int grade);
 	bool setHwGrade(int i, int grade);
-	friend char* getCopy(char* str);
-};
 
+	void print() ;
+	Course& operator=(const Course& c);
+};
+	
 #endif

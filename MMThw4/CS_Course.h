@@ -10,12 +10,15 @@ protected:
 	char* book_;
 public:
 	CS_Course(int id = 0, char* name = NULL, int hw_num = 0, double hw_weigh = 0,
-		bool takef = true, char* book == NULL);
+		bool takef = true, char* book = NULL);
+	virtual ~CS_Course() ;
 	int getCourseGrade() const;
 	bool isTakef() const;
 	char* getBook() const;
 	bool setTakef(bool takef);
 	bool setBook(char* book);
+
+	CS_Course& operator=(const CS_Course& c);
 };
 
 #endif

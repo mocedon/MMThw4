@@ -79,13 +79,41 @@ bool Course::setHwGrade(int i, int grade)
 	return true;
 }
 
-char* getCopy(char* str)
+char* Course::getCopy(char* str) const
 {
 	if (str == NULL)
 	{
 		return NULL;
 	}
-	char* copy = new char[strlen + 1];
+	char* copy = new char[strlen(str) + 1];
 	strcpy(copy, str);
 	return copy;
+}
+
+int* Course::getCopy(int* arr , int len) const {
+	if (arr == NULL) return NULL ;
+	int* copy = new int[len] ;
+	for (int i = 0; i < len; i++) {
+		copy[i] = arr[i] ;
+	}
+	return copy ;
+}
+
+void Course::print() {
+	cout << id_ << name_ << getCourseGrade() << endl ;
+}
+
+Course& Course::operator=(const Course& c) {
+	if (this != &c){
+		id_ = c.id_ ;
+		if (name_) delete[] name_ ;
+		name_ = getCopy(c.name_) ;
+		hw_num_ = c.hw_num_ ;
+		hw_weigh_ = c.hw_weigh_ ;
+		exam_grade_ = c.exam_grade_ ;
+		if (hw_grade_) delete[] hw_grade_ ;
+		hw_grade_ = getCopy(hw_grade_ , hw_num_) ;
+	}
+	return *this ;
+
 }

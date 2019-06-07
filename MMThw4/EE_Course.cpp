@@ -27,3 +27,8 @@ bool EE_Course::setFactor(int factor)
 	factor_ = factor;
 	return true;
 }
+
+EE_Course& EE_Course::operator=(const EE_Course& c) {
+	Course::operator=(c) ;
+	factor_ = c.factor_ ;
+}
