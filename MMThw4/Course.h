@@ -21,7 +21,6 @@ protected:
 	int exam_grade_;
 	int* hw_grade_;
 	char* getCopy(char* str) const;
-	int* getCopy(int* arr , int len) const ;
 public:
 	Course(int id = 0, char* name = NULL, int hw_num = 0, double hw_weigh = 0);
 	virtual ~Course();
@@ -35,9 +34,6 @@ public:
 	virtual int getCourseGrade() const;
 	bool setExamGrade(int grade);
 	bool setHwGrade(int i, int grade);
-
-	void print() ;
-	Course& operator=(const Course& c);
 };
 	
 #endif

@@ -52,7 +52,9 @@ double Course::getHwAverage() const
 
 int Course::getCourseGrade() const
 {
-	return (1 - hw_weigh_)*exam_grade_ + hw_weigh_ * getHwAverage();
+	double d = (1 - hw_weigh_)*exam_grade_ + hw_weigh_ * getHwAverage();
+	int i = (d + 0.5);
+	return i;
 }
 
 bool Course::setExamGrade(int grade)
@@ -88,32 +90,4 @@ char* Course::getCopy(char* str) const
 	char* copy = new char[strlen(str) + 1];
 	strcpy(copy, str);
 	return copy;
-}
-
-int* Course::getCopy(int* arr , int len) const {
-	if (arr == NULL) return NULL ;
-	int* copy = new int[len] ;
-	for (int i = 0; i < len; i++) {
-		copy[i] = arr[i] ;
-	}
-	return copy ;
-}
-
-void Course::print() {
-	cout << id_ << name_ << getCourseGrade() << endl ;
-}
-
-Course& Course::operator=(const Course& c) {
-	if (this != &c){
-		id_ = c.id_ ;
-		if (name_) delete[] name_ ;
-		name_ = getCopy(c.name_) ;
-		hw_num_ = c.hw_num_ ;
-		hw_weigh_ = c.hw_weigh_ ;
-		exam_grade_ = c.exam_grade_ ;
-		if (hw_grade_) delete[] hw_grade_ ;
-		hw_grade_ = getCopy(hw_grade_ , hw_num_) ;
-	}
-	return *this ;
-
 }

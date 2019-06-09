@@ -12,7 +12,6 @@ public:
 	int getCourseGrade() const;
 	int getFactor() const;
 	bool setFactor(int factor);
-	EE_Course& operator=(const EE_Course& c) ;
 };
 
 #endif

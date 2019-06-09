@@ -8,7 +8,8 @@
 
 using namespace std ;
 
-class Person {
+class Person
+{
 protected:
 	int id_ ;
 	char* name_ ;
@@ -20,6 +21,5 @@ public:
 	int getID() const ;
 	char* getName() const ;
 };
-
 
 #endif

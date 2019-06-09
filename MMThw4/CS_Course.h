@@ -17,8 +17,6 @@ public:
 	char* getBook() const;
 	bool setTakef(bool takef);
 	bool setBook(char* book);
-
-	CS_Course& operator=(const CS_Course& c);
 };
 
 #endif
