@@ -128,8 +128,7 @@ int Student::getAvg() const {
 		sum += EEC_[i]->getCourseGrade();
 	}
 	sum /= (EEC_num_ + CSC_num_);
-	int s = (sum + 0.5);
-	return s;
+	return static_cast<int>(sum + 0.5);
 }
 
 void Student::print() const {
