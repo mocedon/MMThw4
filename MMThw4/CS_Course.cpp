@@ -10,7 +10,7 @@ CS_Course::~CS_Course()
 
 int CS_Course::getCourseGrade() const
 {
-	if (takef_ && exam_grade_ < getHwAverage())
+	if (takef_ || exam_grade_ < getHwAverage())
 	{
 		return Course::getCourseGrade();
 	}
