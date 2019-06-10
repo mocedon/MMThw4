@@ -42,6 +42,10 @@ double Course::getHwWeigh() const
 
 double Course::getHwAverage() const
 {
+	if (hw_num_ == 0)
+	{
+		return 0;
+	}
 	double sum = 0;
 	for (int i = 0; i < hw_num_; i++)
 	{
