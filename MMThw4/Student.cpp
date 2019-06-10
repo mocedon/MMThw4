@@ -134,7 +134,7 @@ int Student::getAvg() const
 
 void Student::print() const
 {
-	cout << "Student Name: " << name_ << endl;
+	cout << "Student name: " << name_ << endl;
 	cout << "Student ID: " << id_ << endl;
 	cout << "Avgerage grade: " << getAvg() << endl;
 	cout << endl << "EE Courses:" << endl;
