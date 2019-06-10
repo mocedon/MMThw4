@@ -51,7 +51,7 @@ bool Student::addCS_Course(CS_Course* c)
 	CSC_[CSC_num_] = new CS_Course(id, name, hwNum, hwWeigh, takef, book);
 	delete[] name;
 	delete[] book;
-	EEC_[CSC_num_]->setExamGrade(c->getExamGrade());
+	CSC_[CSC_num_]->setExamGrade(c->getExamGrade());
 	for (int i = 0; i < hwNum; i++)
 	{
 		CSC_[CSC_num_]->setHwGrade(i, c->getExamGrade());
@@ -129,7 +129,7 @@ int Student::getAvg() const
 		sum += EEC_[i]->getCourseGrade();
 	}
 	sum /= (EEC_num_ + CSC_num_);
-	return static_cast<int>(sum);
+	return static_cast<int>(sum + 0.5);
 }
 
 void Student::print() const

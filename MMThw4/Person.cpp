@@ -25,6 +25,6 @@ char* Person::getCopy(char* str) const
 		return NULL;
 	}
 	char* copy = new char[strlen(str) + 1];
-	strcpy(copy, str);
+	strcpy_s(copy, strlen(str) + 1, str);
 	return copy;
 }
