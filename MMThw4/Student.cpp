@@ -136,7 +136,7 @@ void Student::print() const
 {
 	cout << "Student name: " << name_ << endl;
 	cout << "Student ID: " << id_ << endl;
-	cout << "Avgerage grade: " << getAvg() << endl;
+	cout << "Average grade: " << getAvg() << endl;
 	cout << endl << "EE Courses:" << endl;
 	for (int i = 0; i < EEC_num_; i++)
 	{
@@ -155,6 +155,6 @@ void Student::printCourse(Course* c) const
 	int num = c->getNum();
 	char* name = c->getName();
 	int grade = c->getCourseGrade();
-	cout << num << " " << name << " " << grade << endl;
+	cout << num << " " << name << ": " << grade << endl;
 	delete[] name;
 }
