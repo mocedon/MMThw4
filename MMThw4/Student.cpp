@@ -137,7 +137,7 @@ void Student::print() const
 	cout << "Student name: " << name_ << endl;
 	cout << "Student ID: " << id_ << endl;
 	cout << "Average grade: " << getAvg() << endl;
-	cout << endl << "EE Courses:" << endl;
+	cout << endl << "EE courses:" << endl;
 	for (int i = 0; i < EEC_num_; i++)
 	{
 		printCourse(EEC_[i]);
