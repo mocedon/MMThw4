@@ -1,6 +1,6 @@
 #include "Person.h"
 
-Person::Person(int id = 0, char* name = NULL) :
+Person::Person(int id, char* name) :
 	id_(id) , name_(getCopy(name)) {} 
 
 Person::~Person()

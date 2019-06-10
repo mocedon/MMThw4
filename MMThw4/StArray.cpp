@@ -22,6 +22,7 @@ bool StArray::addStudent(int id, char* name)
 	}
 	arr_[num_] = new Student(id, name);
 	num_++;
+	return true;
 }
 
 bool StArray::addEE_Course(int id, int num, char* name, int hwNum, double hwWeigh)
@@ -119,6 +120,7 @@ bool StArray::printStudent(int id) const
 		return false;
 	}
 	arr_[i]->print();
+	return true;
 }
 
 void StArray::printAll() const

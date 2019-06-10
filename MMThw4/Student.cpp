@@ -1,6 +1,6 @@
 #include "Student.h"
 
-Student::Student(int id = 0, char* name) :
+Student::Student(int id, char* name) :
 	Person(Person(id, name)), EEC_num_(0), EEC_(new EE_Course*[MAX_COURSE_NUM]),
 	CSC_num_(0), CSC_(new CS_Course*[MAX_COURSE_NUM]) {}
 
@@ -27,7 +27,7 @@ bool Student::addEE_Course(EE_Course* c)
 	EEC_[EEC_num_] = new EE_Course(id, name, hwNum, hwWeigh);
 	delete[] name;
 	EEC_[EEC_num_]->setExamGrade(c->getExamGrade());
-	for (i = 0; i < hwNum; i++)
+	for (int i = 0; i < hwNum; i++)
 	{
 		EEC_[EEC_num_]->setHwGrade(i, c->getExamGrade());
 	}
@@ -48,11 +48,11 @@ bool Student::addCS_Course(CS_Course* c)
 	double hwWeigh = c->getHwWeigh();
 	bool takef = c->isTakef();
 	char* book = c->getBook();
-	CSC_[CSC_num_] = new EE_Course(id, name, hwNum, hwWeigh, takef, book);
+	CSC_[CSC_num_] = new CS_Course(id, name, hwNum, hwWeigh, takef, book);
 	delete[] name;
 	delete[] book;
 	EEC_[CSC_num_]->setExamGrade(c->getExamGrade());
-	for (i = 0; i < hwNum; i++)
+	for (int i = 0; i < hwNum; i++)
 	{
 		CSC_[CSC_num_]->setHwGrade(i, c->getExamGrade());
 	}

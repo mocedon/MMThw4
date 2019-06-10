@@ -5,7 +5,7 @@ EE_Course::EE_Course(int id, char* name, int hw_num, double hw_weigh) :
 
 int EE_Course::getCourseGrade() const
 {
-	int grade Course::getCourseGrade() + factor_;
+	int grade = Course::getCourseGrade() + factor_;
 	if (grade > MAX_GRADE)
 	{
 		return MAX_GRADE;
