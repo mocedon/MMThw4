@@ -119,6 +119,10 @@ CS_Course* Student::getCS_Course(int id) const
 
 int Student::getAvg() const
 {
+	if (EEC_num_ == 0 && CSC_num_ == 0)
+	{
+		return 0;
+	}
 	double sum = 0 ;
 	for (int i = 0; i < CSC_num_; i++)
 	{
