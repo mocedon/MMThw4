@@ -134,9 +134,9 @@ int Student::getAvg() const
 
 void Student::print() const
 {
-	cout << "SName: " << name_ << endl;
-	cout << "SID: " << id_ << endl;
-	cout << "Avg.: " << getAvg() << endl;
+	cout << "Student Name: " << name_ << endl;
+	cout << "Student ID: " << id_ << endl;
+	cout << "Avgerage grade: " << getAvg() << endl;
 	cout << endl << "EE Courses:" << endl;
 	for (int i = 0; i < EEC_num_; i++)
 	{
