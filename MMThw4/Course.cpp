@@ -12,7 +12,7 @@ Course::~Course()
 
 int Course::getNum() const
 {
-	return hw_num_;
+	return id_;
 }
 
 char* Course::getName() const
