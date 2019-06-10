@@ -13,6 +13,7 @@ protected:
 	EE_Course** EEC_;
 	int CSC_num_ ;
 	CS_Course** CSC_;
+	void printCourse(Course* c) const;
 
 public:
 	Student(int id = 0, char* name = NULL);

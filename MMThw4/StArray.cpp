@@ -50,48 +50,22 @@ bool StArray::addCS_Course(int id, int num, char* name, int hwNum, double hwWeig
 
 bool StArray::setHwGrade(int id, int num, int i, int grade)
 {
-	int j = searchStudent(id);
-	if (j == NO_STUDENT)
+	Course* c = getCourse(id, num);
+	if (c == NULL)
 	{
 		return false;
 	}
-	EE_Course* ee = arr_[j]->getEE_Course(num);
-	CS_Course* cs = arr_[j]->getCS_Course(num);
-	if (ee != NULL)
-	{
-		return ee->setHwGrade(i, grade);
-	}
-	else if (cs != NULL)
-	{
-		return cs->setHwGrade(i, grade);
-	}
-	else
-	{
-		return false;
-	}
+	return c->setHwGrade(i, grade);
 }
 
 bool StArray::setExamGrade(int id, int num, int grade)
 {
-	int i = searchStudent(id);
-	if (i == NO_STUDENT)
+	Course* c = getCourse(id, num);
+	if (c == NULL)
 	{
 		return false;
 	}
-	EE_Course* ee = arr_[i]->getEE_Course(num);
-	CS_Course* cs = arr_[i]->getCS_Course(num);
-	if (ee != NULL)
-	{
-		return ee->setExamGrade(grade);
-	}
-	else if (cs != NULL)
-	{
-		return cs->setExamGrade(grade);
-	}
-	else
-	{
-		return false;
-	}
+	return c->setExamGrade(grade);
 }
 
 bool StArray::setFactor(int num, int factor)
@@ -151,3 +125,20 @@ int StArray::searchStudent(int id) const
 	}
 	return NO_STUDENT;
 }
+
+Course* StArray::getCourse(int id, int num) const
+{
+	int i = searchStudent(id);
+	if (i == NO_STUDENT)
+	{
+		return NULL;
+	}
+	EE_Course* ee = arr_[i]->getEE_Course(num);
+	CS_Course* cs = arr_[i]->getCS_Course(num);
+	if (ee == NULL)
+	{
+		return cs;
+	}
+	return ee;
+}
+

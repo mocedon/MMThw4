@@ -12,6 +12,7 @@ protected:
 	int num_;
 	Student** arr_;
 	int searchStudent(int id) const;
+	Course* getCourse(int id, int num) const;
 public:
 	StArray();
 	virtual ~StArray();

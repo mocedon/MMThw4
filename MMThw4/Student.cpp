@@ -117,7 +117,8 @@ CS_Course* Student::getCS_Course(int id) const
 	return NULL;
 }
 
-int Student::getAvg() const {
+int Student::getAvg() const
+{
 	double sum = 0 ;
 	for (int i = 0; i < CSC_num_; i++)
 	{
@@ -131,26 +132,29 @@ int Student::getAvg() const {
 	return static_cast<int>(sum + 0.5);
 }
 
-void Student::print() const {
-	cout << "SName: " << name_ << endl ;
-	cout << "SID: " << id_ << endl ;
-	cout << "Avg.: " << getAvg() << endl << endl ;
-	cout << "EE:" << endl ;
+void Student::print() const
+{
+	cout << "SName: " << name_ << endl;
+	cout << "SID: " << id_ << endl;
+	cout << "Avg.: " << getAvg() << endl;
+	cout << endl << "EE Courses:" << endl;
 	for (int i = 0; i < EEC_num_; i++)
 	{
-		int id = EEC_[i]->getNum();
-		char* name = EEC_[i]->getName();
-		int grade = EEC_[i]->getCourseGrade();
-		cout << id << name << grade << endl;
-		delete[] name;
+		printCourse(EEC_[i]);
 	}
-	cout << endl << "CS courses:" << endl ;
+	cout << endl << "CS courses:" << endl;
 	for (int i = 0; i < CSC_num_; i++)
 	{
-		int id = CSC_[i]->getNum();
-		char* name = CSC_[i]->getName();
-		int grade = CSC_[i]->getCourseGrade();
-		cout << id << name << grade << endl;
-		delete[] name;
+		printCourse(CSC_[i]);
 	}
+	cout << endl;
+}
+
+void Student::printCourse(Course* c) const
+{
+	int num = c->getNum();
+	char* name = c->getName();
+	int grade = c->getCourseGrade();
+	cout << num << " " << name << " " << grade << endl;
+	delete[] name;
 }
