@@ -53,7 +53,7 @@ double Course::getHwAverage() const
 int Course::getCourseGrade() const
 {
 	double grade = (1 - hw_weigh_)*exam_grade_ + hw_weigh_ * getHwAverage();
-	return static_cast<int>grade;
+	return static_cast<int>(grade);
 }
 
 bool Course::setExamGrade(int grade)
