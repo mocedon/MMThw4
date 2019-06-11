@@ -4,7 +4,16 @@ Student::Student(int id, char* name) :
 	Person(Person(id, name)), EEC_num_(0), EEC_(new EE_Course*[MAX_COURSE_NUM]),
 	CSC_num_(0), CSC_(new CS_Course*[MAX_COURSE_NUM]) {}
 
-Student::~Student() {
+Student::~Student()
+{
+	for (int i = 0; i < EEC_num_; i++)
+	{
+		delete EEC_[i];
+	}
+	for (int i = 0; i < CSC_num_; i++)
+	{
+		delete CSC_[i];
+	}
 	delete[] EEC_ ;
 	delete[] CSC_ ;
 }
